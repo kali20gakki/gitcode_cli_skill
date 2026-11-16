@@ -1,0 +1,41 @@
+{
+  "skill_name": "gitcode-cli",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我看看 atomgit-cli/cli 最近 5 个 open 的 issue，以及它们关联的 PR。",
+      "expected_output": "用 gitcode issue list -R atomgit-cli/cli --state open --limit 5 --json 取列表，再对需要的 issue 用 issue prs --json 查关联 PR；输出结构化摘要，不打印 token。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "atomgit-cli/cli 的 CI 最近一次失败是哪个 run？把失败 job 的日志抓下来，告诉我关键报错。",
+      "expected_output": "actions run list --status FAILED --json → actions run view / job list / job log --output 落盘再读；不得把完整日志直接灌进上下文。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "GitCode 上没有现成子命令的接口：取 atomgit-cli/cli 里 1 号 PR 改了哪些文件。",
+      "expected_output": "用 gitcode api repos/atomgit-cli/cli/pulls/1/files（可加 --jq '.[].filename'）兜底，而不是猜 typed 命令。",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "在 atomgit-cli/cli 准备一个新 issue：标题 'docs: fix typo'，正文 'Found a typo in README.'。先不要真的创建，给我看会提交什么。",
+      "expected_output": "用 issue create --title ... --body-file ... --dry-run --json 预演，并把将创建的内容展示给用户；不得加 --yes 或真实创建。",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "把 atomgit-cli/cli 的 release 列表拉出来，标出哪个是 prerelease、哪个是 draft。",
+      "expected_output": "release list -R atomgit-cli/cli --json，按 prerelease/draft 字段整理成表格。",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "PR owner/repo#123 的改动我已经看过了，把 review.md 里的意见作为评论发到 PR 上。",
+      "expected_output": "先 pr view/pr diff 确认 PR 身份，再 pr review --comment-file review.md --json；这是写操作，需先确认仓库与内容，不擅自 --approve。",
+      "files": []
+    }
+  ]
+}

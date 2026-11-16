@@ -1,0 +1,18 @@
+{
+  "cli_version": "0.17.0",
+  "files": [
+    "references/capabilities.md",
+    "references/command-index.md",
+    "references/commands/actions.md",
+    "references/commands/issue.md",
+    "references/commands/ops.md",
+    "references/commands/pr.md",
+    "references/commands/release-commit.md",
+    "references/commands/repo.md",
+    "references/commands/search-user.md",
+    "references/.schema-meta.json"
+  ],
+  "generator_version": "1.0.0",
+  "leaf_commands": 161,
+  "schema_sha256": "99e06af09e92df8290b7b112afdc2fa8d43b36e4e441bfffe7e26de33a5c116b"
+}

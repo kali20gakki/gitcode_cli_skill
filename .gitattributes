@@ -1,0 +1,4 @@
+# Keep LF in the working tree on every platform: scripts/gen_references.py
+# compares generated text byte-for-byte with the committed files, so CRLF
+# conversion on checkout would show up as false drift.
+* text=auto eol=lf
